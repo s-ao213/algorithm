@@ -76,8 +76,8 @@ class SieveOfEratosthenes {
         this.isRunning = true;
         this.currentStep = 0;
         this.currentPrime = 2;
-        this.primes = [];
-        this.eliminated = [];
+        // this.primes = [];
+        // this.eliminated = [];
         
         this.startBtn.disabled = true;
         this.stepBtn.disabled = false;
@@ -95,7 +95,7 @@ class SieveOfEratosthenes {
 
         const sqrtMax = Math.sqrt(this.maxNumber);
         
-        if (this.currentPrime > sqrtMax) {
+        if (this.currentPrime > sqrtMax|this.primes.length+this.eliminated.length == this.maxNumber-1) {
             this.finishAlgorithm();
             return;
         }
@@ -124,7 +124,7 @@ class SieveOfEratosthenes {
         this.updateStats();
         this.updatePrimeList();
         
-        if (this.isAutoRunning) {
+        if (this.isAutoRunning && this.isRunning) {
             setTimeout(() => this.nextStep(), this.speed);
         }
     }
@@ -175,6 +175,7 @@ class SieveOfEratosthenes {
     toggleAutoRun() {
         if (!this.isRunning) {
             this.start();
+            return; // start()メソッド内でnextStep()が呼ばれるので、ここで処理を終了
         }
         
         this.isAutoRunning = !this.isAutoRunning;
