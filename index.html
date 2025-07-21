@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エラトステネスの篩 - アルゴリズム可視化</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>エラトステネスの篩</h1>
+            <p>素数を効率的に見つけるアルゴリズムの可視化</p>
+        </header>
+
+        <div class="controls">
+            <div class="input-group">
+                <label for="maxNumber">最大数値:</label>
+                <input type="number" id="maxNumber" min="10" max="200" value="30">
+            </div>
+            <div class="button-group">
+                <button id="startBtn">開始</button>
+                <button id="stepBtn" disabled>次のステップ</button>
+                <button id="resetBtn">リセット</button>
+                <button id="autoBtn">自動実行</button>
+            </div>
+            <div class="speed-control">
+                <label for="speedSlider">速度:</label>
+                <input type="range" id="speedSlider" min="100" max="2000" value="800">
+            </div>
+        </div>
+
+        <div class="algorithm-info">
+            <div class="current-step">
+                <h3>現在のステップ</h3>
+                <p id="stepDescription">「開始」ボタンを押してアルゴリズムを開始してください</p>
+            </div>
+            <div class="statistics">
+                <h3>統計情報</h3>
+                <div class="stat-item">
+                    <span>現在の数値:</span>
+                    <span id="currentNumber">-</span>
+                </div>
+                <div class="stat-item">
+                    <span>見つかった素数:</span>
+                    <span id="primeCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span>除外された数値:</span>
+                    <span id="eliminatedCount">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div id="numberGrid"></div>
+        </div>
+
+        <div class="prime-list">
+            <h3>発見された素数</h3>
+            <div id="primeNumbers"></div>
+        </div>
+
+        <div class="algorithm-explanation">
+            <h3>アルゴリズムの説明</h3>
+            <ol>
+                <li>2からnまでの数を一覧表示</li>
+                <li>2から開始し、その倍数を除外</li>
+                <li>次の未処理の数を選び、その倍数を除外</li>
+                <li>√nまで繰り返す</li>
+                <li>残った数が素数</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
