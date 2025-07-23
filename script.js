@@ -266,3 +266,19 @@ function generatePrimesUpTo(n) {
     
     return primes;
 }
+
+function openModal() {
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+// 背景クリックで閉じる機能
+window.onclick = function(event) {
+    const modal = document.getElementById('popup');
+    if (event.target === modal) {
+    modal.style.display = 'none';
+    }
+}
