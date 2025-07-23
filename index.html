@@ -9,8 +9,12 @@
 <body>
     <div class="container">
         <header>
-            <h1>エラトステネスの篩</h1>
-            <p>素数を効率的に見つけるアルゴリズムの可視化</p>
+            <h1>エラトステネスの篩 
+                <button class="open-btn" onclick="openModal()">？</button>
+            </h1>
+            <p>
+                素数を効率的に見つけるアルゴリズムの可視化
+            </p>
         </header>
 
         <div class="controls">
@@ -70,6 +74,18 @@
                 <li>√nまで繰り返す</li>
                 <li>残った数が素数</li>
             </ol>
+        </div>
+    </div>
+
+    <div id="popup" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">閉じる</button>
+            <h2>エラトステネスの篩とは？</h2>
+            <p>
+                エラトステネスの篩（ふるい）は、古代ギリシャの数学者エラトステネスが考案した、<strong>素数</strong>を求める効率的なアルゴリズムです。<br><br>
+                2から始めて、その数の倍数を順に消していくことで、素数だけが残ります。<br>
+                シンプルで高速な方法として知られ、現代のプログラミングでもよく使われます。
+            </p>
         </div>
     </div>
 
